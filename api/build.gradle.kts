@@ -13,9 +13,7 @@ kotlin {
     sourceSets {
         val commonMain by getting {
             dependencies {
-                api(projects.actionsApi)
-                api(projects.koncurrentLaterCore)
-                api(projects.kollectionsInteroperable)
+                api(projects.koncurrentLaterApi)
             }
         }
     }

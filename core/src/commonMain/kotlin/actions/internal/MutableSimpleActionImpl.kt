@@ -1,12 +1,13 @@
 package actions.internal
 
-import koncurrent.Later
 import actions.MutableSimpleAction
+import koncurrent.Later
+import koncurrent.Thenable
 
 @PublishedApi
 internal class MutableSimpleActionImpl(
     override val name: String,
-    override var handler: () -> Later<Any?>
+    override var handler: () -> Thenable<Any?>
 ) : MutableSimpleAction {
     override fun onInvoked(h: () -> Unit) {
         handler = { Later.resolve(h()) }
