@@ -1,20 +1,20 @@
 package actions.internal
 
-import actions.MutableSimpleAction
+import actions.MutableAction0I1R
 import koncurrent.Later
 import koncurrent.Thenable
 
 @PublishedApi
-internal class MutableSimpleActionImpl<O>(
+internal class MutableAction0I1RImpl<R>(
     override val name: String,
-    override var handler: () -> Thenable<O>
-) : MutableSimpleAction<O> {
-    override fun onInvoked(h: () -> O) {
+    override var handler: () -> Thenable<R>
+) : MutableAction0I1R<R> {
+    override fun onInvoked(h: () -> R) {
         handler = { Later.resolve(h()) }
     }
 
     override fun invoke() = handler()
     override fun hashCode() = name.hashCode()
     override fun toString() = "Action($name)"
-    override fun equals(other: Any?) = other is MutableSimpleAction<*> && other.name == name
+    override fun equals(other: Any?) = other is MutableAction0I1R<*> && other.name == name
 }
