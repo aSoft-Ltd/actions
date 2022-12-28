@@ -6,8 +6,8 @@ package actions
 import koncurrent.Thenable
 import kotlin.js.JsExport
 
-interface MutableGenericAction<T> : GenericAction<T>, MutableAction<(T) -> Thenable<Any?>> {
-    override var handler: (T) -> Thenable<Any?>
+interface MutableGenericAction<I, O> : GenericAction<I, O>, MutableAction<(I) -> Thenable<O>> {
+    override var handler: (I) -> Thenable<O>
 
-    fun onInvoked(h: (T) -> Unit)
+    fun onInvoked(h: (I) -> O)
 }

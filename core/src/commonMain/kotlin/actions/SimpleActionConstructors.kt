@@ -3,26 +3,26 @@ package actions
 import actions.internal.MutableSimpleActionImpl
 import koncurrent.Later
 
-inline fun simpleActionOfLater(
+inline fun <O> simpleActionOfLater(
     name: String,
-    noinline handler: () -> Later<Any?>
-): SimpleAction = MutableSimpleActionImpl(name, handler)
+    noinline handler: () -> Later<O>
+): SimpleAction<O> = MutableSimpleActionImpl(name, handler)
 
-inline fun simpleAction(
+inline fun <O> simpleAction(
     name: String,
-    noinline handler: () -> Unit
-): SimpleAction = MutableSimpleActionImpl(name) {
+    noinline handler: () -> O
+): SimpleAction<O> = MutableSimpleActionImpl(name) {
     Later.resolve(Unit).then { handler() }
 }
 
-inline fun mutableSimpleActionOfLater(
+inline fun <O> mutableSimpleActionOfLater(
     name: String,
-    noinline handler: () -> Later<Any?>
-): MutableSimpleAction = MutableSimpleActionImpl(name, handler)
+    noinline handler: () -> Later<O>
+): MutableSimpleAction<O> = MutableSimpleActionImpl(name, handler)
 
-inline fun mutableSimpleAction(
+inline fun <O> mutableSimpleAction(
     name: String,
-    noinline handler: () -> Unit
-): MutableSimpleAction = MutableSimpleActionImpl(name) {
+    noinline handler: () -> O
+): MutableSimpleAction<O> = MutableSimpleActionImpl(name) {
     Later.resolve(Unit).then { handler() }
 }

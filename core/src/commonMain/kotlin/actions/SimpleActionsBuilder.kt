@@ -1,10 +1,10 @@
 package actions
 
-import kotlinx.collections.interoperable.mutableListOf
+import kollections.iMutableListOf
 
-open class SimpleActionsBuilder : ActionsBuilder<SimpleAction, () -> Unit> {
-    val actions = mutableListOf<SimpleAction>()
-    override fun on(name: String, handler: () -> Unit): SimpleAction {
+open class SimpleActionsBuilder<O> : ActionsBuilder<SimpleAction<O>, () -> O> {
+    val actions = iMutableListOf<SimpleAction<O>>()
+    override fun on(name: String, handler: () -> O): SimpleAction<O> {
         val action = simpleAction(name, handler)
         actions.add(action)
         return action
