@@ -10,7 +10,7 @@ internal class MutableAction0I1RImpl<R>(
     override var handler: () -> Thenable<R>
 ) : MutableAction0I1R<R> {
     override fun onInvoked(h: () -> R) {
-        handler = { Later.resolve(h()) }
+        handler = { Later(h()) }
     }
 
     override fun invoke() = handler()

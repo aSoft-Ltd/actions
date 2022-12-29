@@ -12,7 +12,7 @@ inline fun <I, R> action1I1R(
     name: String,
     noinline handler: (I) -> R
 ): Action1I1R<I, R> = MutableAction1I1RImpl(name) { param ->
-    Later.resolve(Unit).then { handler(param) }
+    Later(Unit).then { handler(param) }
 }
 
 inline fun <I, R> mutableAction1I1RLater(
@@ -24,5 +24,5 @@ inline fun <I, R> mutableAction1I1R(
     name: String,
     noinline handler: (I) -> R
 ): MutableAction1I1R<I, R> = MutableAction1I1RImpl(name) { param ->
-    Later.resolve(Unit).then { handler(param) }
+    Later(Unit).then { handler(param) }
 }
