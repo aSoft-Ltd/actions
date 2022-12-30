@@ -6,6 +6,6 @@ package actions
 import koncurrent.Thenable
 import kotlin.js.JsExport
 
-interface Action1I1R<in I, out R> : Action<(I) -> Thenable<R>> {
+interface Action1<in I, out R> : Action<(I) -> Thenable<R>> {
     operator fun invoke(arg: I): Thenable<R>
 }
