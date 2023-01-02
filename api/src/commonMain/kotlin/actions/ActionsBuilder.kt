@@ -1,4 +1,8 @@
+@file:JsExport
+
 package actions
+
+import kotlin.js.JsExport
 
 interface ActionsBuilder<out A, in H> {
     fun on(name: String, handler: H): A
