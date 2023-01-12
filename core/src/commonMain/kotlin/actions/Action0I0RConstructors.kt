@@ -1,7 +1,7 @@
 @file:JsExport
 @file:Suppress("NON_EXPORTABLE_TYPE")
 
-package actions.constructors
+package actions
 
 import actions.Action0
 import actions.MutableAction0

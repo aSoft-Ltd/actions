@@ -1,10 +1,8 @@
 @file:JsExport
 @file:Suppress("NON_EXPORTABLE_TYPE")
 
-package actions.constructors
+package actions
 
-import actions.Action0
-import actions.MutableAction0
 import actions.internal.MutableAction0Impl
 import koncurrent.Later
 import kotlin.js.JsExport
