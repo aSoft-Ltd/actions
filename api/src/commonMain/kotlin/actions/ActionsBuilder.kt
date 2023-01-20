@@ -1,15 +1,26 @@
 @file:JsExport
+@file:Suppress("NOTHING_TO_INLINE")
 
 package actions
 
 import kotlin.js.JsExport
 
-interface ActionsBuilder<out A, in H> {
-    fun on(name: String, handler: H): A
+abstract class ActionsBuilder<out A, in H>() {
+    abstract fun on(name: String, handler: H): A
+
+    fun onAdd(handler: H) = on("Add", handler)
+
+    fun onCreate(handler: H) = on("Create", handler)
+
+    fun onEdit(handler: H) = on("Edit", handler)
+
+    fun onAddAll(handler: H) = on("Add all", handler)
 
     fun onView(handler: H) = on("View", handler)
 
     fun onDelete(handler: H) = on("Delete", handler)
+
+    fun onDeleteAll(handler: H) = on("Delete all", handler)
 
     fun onCancel(handler: H) = on("Cancel", handler)
 
