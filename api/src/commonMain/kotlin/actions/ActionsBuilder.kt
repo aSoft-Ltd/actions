@@ -14,6 +14,8 @@ abstract class ActionsBuilder<out A, in H>() {
 
     fun onEdit(handler: H) = on("Edit", handler)
 
+    fun onDuplicate(handler: H) = on("Duplicate", handler)
+
     fun onAddAll(handler: H) = on("Add all", handler)
 
     fun onView(handler: H) = on("View", handler)
