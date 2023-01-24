@@ -16,5 +16,5 @@ internal class MutableAction1Impl<I, R>(
     override operator fun invoke(arg: I) = handler(arg)
     override fun hashCode() = name.hashCode()
     override fun toString() = "GenericPendingAction($name)"
-    override fun equals(other: Any?) = other is MutableAction1<*, *> && other.name == name
+    override fun equals(other: Any?) = other is MutableAction1<out Any?, out Any?> && other.name == name
 }

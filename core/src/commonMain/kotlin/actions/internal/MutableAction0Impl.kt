@@ -16,5 +16,5 @@ internal class MutableAction0Impl<R>(
     override fun invoke() = handler()
     override fun hashCode() = name.hashCode()
     override fun toString() = "Action($name)"
-    override fun equals(other: Any?) = other is MutableAction0<*> && other.name == name
+    override fun equals(other: Any?) = other is MutableAction0<out Any?> && other.name == name
 }
