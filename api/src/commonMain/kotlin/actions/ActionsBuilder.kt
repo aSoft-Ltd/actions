@@ -5,7 +5,7 @@ package actions
 
 import kotlin.js.JsExport
 
-abstract class ActionsBuilder<out A, in H>() {
+abstract class ActionsBuilder<out A, in H> {
     abstract fun on(name: String, handler: H): A
 
     fun onAdd(handler: H) = on("Add", handler)

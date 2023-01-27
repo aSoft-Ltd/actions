@@ -3,8 +3,6 @@
 
 package actions
 
-import actions.Action0
-import actions.MutableAction0
 import actions.internal.MutableAction0Impl
 import koncurrent.Later
 import kotlin.js.JsExport
@@ -12,13 +10,14 @@ import kotlin.js.JsExport
 inline fun action0I0R(
     name: String,
     noinline handler: () -> Unit
-): Action0<Unit> = MutableAction0Impl(name) {
-    Later(Unit).then { handler() }
-}
+): Action0<Unit> = MutableAction0Impl(name, handler)
 
 inline fun mutableAction0I0R(
     name: String,
     noinline handler: () -> Unit
-): MutableAction0<Unit> = MutableAction0Impl(name) {
-    Later(Unit).then { handler() }
-}
+): MutableAction0<Unit> = MutableAction0Impl(name, handler)
+
+inline fun mutableAction0I0RLater(
+    name: String,
+    noinline handler: () -> Later<Unit>
+): MutableAction0<Later<Unit>> = MutableAction0Impl(name, handler)

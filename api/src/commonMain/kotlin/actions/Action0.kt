@@ -1,11 +1,10 @@
 @file:JsExport
-@file:Suppress("WRONG_EXPORTED_DECLARATION", "NON_EXPORTABLE_TYPE")
+@file:Suppress("WRONG_EXPORTED_DECLARATION")
 
 package actions
 
-import koncurrent.Thenable
 import kotlin.js.JsExport
 
-interface Action0<out R> : Action<() -> Thenable<R>> {
-    operator fun invoke(): Thenable<R>
+interface Action0<out R> : Action<() -> R> {
+    operator fun invoke(): R
 }

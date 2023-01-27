@@ -10,23 +10,19 @@ import kotlin.js.JsExport
 inline fun <R> action0I1RLater(
     name: String,
     noinline handler: () -> Later<R>
-): Action0<R> = MutableAction0Impl(name, handler)
+): Action0<Later<R>> = MutableAction0Impl(name, handler)
 
 inline fun <R> action0I1R(
     name: String,
     noinline handler: () -> R
-): Action0<R> = MutableAction0Impl(name) {
-    Later(Unit).then { handler() }
-}
+): Action0<R> = MutableAction0Impl(name, handler)
 
 inline fun <R> mutableAction0I1RLater(
     name: String,
     noinline handler: () -> Later<R>
-): MutableAction0<R> = MutableAction0Impl(name, handler)
+): MutableAction0<Later<R>> = MutableAction0Impl(name, handler)
 
 inline fun <R> mutableAction0I1R(
     name: String,
     noinline handler: () -> R
-): MutableAction0<R> = MutableAction0Impl(name) {
-    Later(Unit).then { handler() }
-}
+): MutableAction0<R> = MutableAction0Impl(name, handler)

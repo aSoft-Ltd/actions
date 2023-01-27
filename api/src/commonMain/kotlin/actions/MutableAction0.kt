@@ -3,11 +3,10 @@
 
 package actions
 
-import koncurrent.Thenable
 import kotlin.js.JsExport
 
-interface MutableAction0<R> : Action0<R>, MutableAction<() -> Thenable<R>> {
-    override var handler: () -> Thenable<R>
+interface MutableAction0<R> : Action0<R>, MutableAction<() -> R> {
+    override var handler: () -> R
 
     fun onInvoked(h: () -> R)
 }
