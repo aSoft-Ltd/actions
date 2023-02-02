@@ -4,7 +4,7 @@ import actions.Action1
 import actions.ActionsBuilder
 import actions.action1I1R
 
-open class Action1I1RBuilder<I, O>(
+open class Actions1Builder<I, O>(
     val actions: MutableList<Action1<I, O>> = mutableListOf()
 ) : ActionsBuilder<Action1<I, O>, (I) -> O>() {
     override fun on(name: String, handler: (I) -> O): Action1<I, O> {

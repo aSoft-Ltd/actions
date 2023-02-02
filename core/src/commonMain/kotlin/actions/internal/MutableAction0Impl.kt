@@ -1,8 +1,6 @@
 package actions.internal
 
 import actions.MutableAction0
-import koncurrent.Later
-import koncurrent.Thenable
 
 @PublishedApi
 internal class MutableAction0Impl<R>(
