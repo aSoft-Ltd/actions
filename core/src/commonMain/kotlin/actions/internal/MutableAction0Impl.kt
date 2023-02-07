@@ -5,6 +5,7 @@ import actions.MutableAction0
 @PublishedApi
 internal class MutableAction0Impl<R>(
     override val name: String,
+    override val key: String,
     override var handler: () -> R
 ) : MutableAction0<R> {
     override fun onInvoked(h: () -> R) {

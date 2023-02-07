@@ -9,10 +9,12 @@ import kotlin.js.JsExport
 
 inline fun <I> action1I0R(
     name: String,
+    key: String = name.lowercase(),
     noinline handler: (I) -> Unit
-): Action1<I, Unit> = MutableAction1Impl(name, handler)
+): Action1<I, Unit> = MutableAction1Impl(name, key, handler)
 
 inline fun <I> mutableAction1I0R(
     name: String,
+    key: String = name.lowercase(),
     noinline handler: (I) -> Unit
-): MutableAction1<I, Unit> = MutableAction1Impl(name, handler)
+): MutableAction1<I, Unit> = MutableAction1Impl(name, key, handler)
